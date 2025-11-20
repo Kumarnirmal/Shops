@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Photo Restoration · OM Photo Studio & Frame</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Image frame */
+.gallery-grid .protected {
+  width: 100%;
+  height: 250px;               /* fixed frame height */
+  overflow: hidden;            /* hide overflow by default */
+  position: relative;
+  border-radius: 8px;
+}
+
+
+
+/* Zoomed-in image */
+.gallery-grid img:hover {
+  transform: scale(2.5);       /* zoom */
+}
+
+/* When zoomed, allow scrolling */
+.gallery-grid .protected:hover {
+  overflow: auto;              /* ⭐ scroll only when zoomed */
+  cursor: grab;
+}
+
+  </style>
+
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="brand">  
+            <h1>OM Photo Studio & Frame</h1>
+            <div class="tag">Creative Solutions</div>
+        </div>
+        <nav class="nav">
+             <a href="index.html" class="active">Home</a>    
+            <div class="dropdown">
+				<a href="#" class="dropbtn">Services</a>
+					<div class="dropdown-content">				
+					<a href="birthDayParty.html" class="active">BirthDay Party</a>
+					<a href="schoolEvents.html" class="active">School Events</a>
+					<a href="weddingPhotography.html" class="active">Wedding Photography</a>
+					<a href="corporateEvents.html" class="active">Corporate Events</a>
+					<a href="photoRestoration.html" class="active">Photo Restoration</a> 	 
+					</div>
+			</div>
+            
+			<div class="dropdown">
+			    <a href="#" class="dropbtn">Gallery</a>
+			      <div class="dropdown-content">	
+			       <a href="Paintinggallery.html" class="active">Art Gallery</a>
+				   <a href="PreWeddingIndoor.html" class="active">PreWedding Indoor</a>
+				   <a href="PreWeddingOutdoor.html" class="active">PreWedding Outdoor</a>
+				   <a href="PhotoFraming.html" class="active">Framing Concept</a>
+				</div> 	
+			</div>		
+			           
+			 <a href="contact.html" class="active">Contact</a>			 
+			 <a href="about.html" class="active">About</a>
+        </nav>
+        <button class="menu-toggle" style="display:none;">Menu</button>
+    
+  </header>
+
+  <main>
+    <section class="section gallery-full">
+      <h2>Improvise Old Images</h2>
+      <p style="text-align:center; margin-bottom: 20px;">
+        We restore and modernize your old, damaged, or faded photos with professional care.
+      </p>
+
+      <div class="gallery-grid">
+        <div class="protected"><img src="images/OldPics/20210614_164623.jpg" alt="Old Photo 1"></div>
+        <div class="protected"><img src="images/OldPics/20210614_164623_Updated.png" alt="Restored Photo 1"></div>
+        <div class="protected"><img src="images/OldPics/20210614_164622.jpg" alt="Old Photo 2"></div>
+        <div class="protected"><img src="images/OldPics/20210614_164622_Updated.png" alt="Restored Photo 2"></div>       
+        <div class="protected"><img src="images/OldPics/20210614_164620.png" alt="Old Photo 3"></div>
+        <div class="protected"><img src="images/OldPics/20210614_164620_updated.jpg" alt="Restored Photo 3"></div>
+        <div class="protected"><img src="images/OldPics/20210614_164619.jpg" alt="Old Photo 4"></div>
+        <div class="protected"><img src="images/OldPics/20210614_164619_Updated.jpg" alt="Restored Photo 4"></div>
+        <div class="protected"><img src="images/OldPics/20210614_164618.png" alt="Old Photo 5"></div>
+        <div class="protected"><img src="images/OldPics/20210614_164618_Updated.png" alt="Restored Photo 5"></div>
+		 <div class="protected"><img src="images/OldPics/20210614_164621.jpg" alt="Old Photo 6"></div>
+        <div class="protected"><img src="images/OldPics/20210614_164621_Updated.jpg" alt="Restored Photo 6"></div>
+       
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 OM Photo Studio & Frame</p>
+  </footer>
+
+  <!-- 🔍 Full-Size Preview Overlay -->
+  <div class="zoom-overlay" id="zoomOverlay">
+    <button class="close-btn" id="closeBtn">✖</button>
+    <button class="nav-btn prev-btn" id="prevBtn">❮</button>
+    <img id="zoomImage" src="" alt="Zoomed Image">
+    <button class="nav-btn next-btn" id="nextBtn">❯</button>
+  </div>
+
+  <script>
+    document.addEventListener("contextmenu", e => e.preventDefault());
+
+    document.querySelectorAll("img").forEach(img => {
+      img.setAttribute("draggable", "false");
+      img.style.userSelect = "none";
+    });
+
+    const zoomOverlay = document.getElementById("zoomOverlay");
+    const zoomImage = document.getElementById("zoomImage");
+    const closeBtn = document.getElementById("closeBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const prevBtn = document.getElementById("prevBtn");
+
+    const galleryImages = Array.from(document.querySelectorAll(".gallery-grid img"));
+    let currentIndex = 0;
+
+    galleryImages.forEach((img, index) => {
+      img.addEventListener("click", () => {
+        currentIndex = index;
+        showImage();
+      });
+    });
+
+    function showImage() {
+      zoomImage.src = galleryImages[currentIndex].src;
+      zoomOverlay.classList.add("active");
+    }
+
+    nextBtn.addEventListener("click", e => {
+      e.stopPropagation();
+      currentIndex = (currentIndex + 1) % galleryImages.length;
+      showImage();
+    });
+
+    prevBtn.addEventListener("click", e => {
+      e.stopPropagation();
+      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+      showImage();
+    });
+
+    closeBtn.addEventListener("click", () => closeZoom());
+    zoomOverlay.addEventListener("click", e => {
+      if (e.target === zoomOverlay) closeZoom();
+    });
+
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") closeZoom();
+      if (e.key === "ArrowRight") nextBtn.click();
+      if (e.key === "ArrowLeft") prevBtn.click();
+    });
+
+    function closeZoom() {
+      zoomOverlay.classList.remove("active");
+      zoomImage.src = "";
+    }
+  </script>
+
+</body>
+</html>

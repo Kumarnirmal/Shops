@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gallery · OM Photo Studio & Frame</title>
+  <link rel="stylesheet" href="style.css" />
+
+<!-- 🔒 Image Protection CSS -->
+ <style>
+    .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Image frame */
+.gallery-grid .protected {
+  width: 100%;
+  height: 250px;               /* fixed frame height */
+  overflow: hidden;            /* hide overflow by default */
+  position: relative;
+  border-radius: 8px;
+}
+
+
+
+/* Zoomed-in image */
+.gallery-grid img:hover {
+  transform: scale(2.5);       /* zoom */
+}
+
+/* When zoomed, allow scrolling */
+.gallery-grid .protected:hover {
+  overflow: auto;              /* ⭐ scroll only when zoomed */
+  cursor: grab;
+}
+
+  </style>
+
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="brand">  
+            <h1>OM Photo Studio & Frame</h1>
+            <div class="tag">Creative Solutions</div>
+        </div>
+        <nav class="nav">           
+			 
+			 <a href="index.html" class="active">Home</a>     
+            <div class="dropdown">
+				<a href="#" class="dropbtn">Services</a>
+					<div class="dropdown-content">				
+					<a href="birthDayParty.html" class="active">BirthDay Party</a>
+					<a href="schoolEvents.html" class="active">School Events</a>
+					<a href="weddingPhotography.html" class="active">Wedding Photography</a>
+					<a href="corporateEvents.html" class="active">Corporate Events</a>
+					<a href="photoRestoration.html" class="active">Photo Restoration</a> 	 
+					</div>
+			</div>
+            
+			<div class="dropdown">
+			    <a href="#" class="dropbtn">Gallery</a>
+			      <div class="dropdown-content">	
+			       <a href="Paintinggallery.html" class="active">Art Gallery</a>
+				   <a href="PreWeddingIndoor.html" class="active">PreWedding Indoor</a>
+				   <a href="PreWeddingOutdoor.html" class="active">PreWedding Outdoor</a>
+				   <a href="PhotoFraming.html" class="active">Framing Concept</a>
+				</div> 	
+			</div>					    
+			 <a href="contact.html" class="active">Contact</a>			  
+			 <a href="about.html" class="active">About</a>
+        </nav>
+        <button class="menu-toggle" style="display:none;">Menu</button>
+    
+  </header>
+
+  <main>
+    <section class="section gallery-full">
+      <h2>Wedding Photography</h2>
+      <div class="gallery-grid">
+        <div class="protected">
+          <img src="images/WeddingPhotography/Wedding_Pic1.png" alt="Wedding_Pic1">
+        </div>
+        <div class="protected">
+          <img src="images/WeddingPhotography/Wedding_Pic2.png" alt="Wedding_Pic2">
+        </div>
+        <div class="protected">
+          <img src="images/WeddingPhotography/Wedding_Pic3.png" alt="Wedding_Pic3">
+        </div>
+        <div class="protected">
+          <img src="images/WeddingPhotography/Wedding_Pic4.png" alt="Wedding_Pic4">
+        </div>
+        <div class="protected">
+          <img src="images/WeddingPhotography/Wedding_Pic5.jpg" alt="Wedding_Pic5">
+        </div>
+        <div class="protected">
+          <img src="images/WeddingPhotography/Wedding_Pic6.jpg" alt="Wedding_Pic6">
+        </div>
+		<div class="protected">
+          <img src="images/WeddingPhotography/Wedding_Pic7.jpg" alt="Wedding_Pic7">
+        </div>
+		<div class="protected">
+          <img src="images/WeddingPhotography/Wedding_Pic8.png" alt="Wedding_Pic8">
+        </div>
+		 <div class="protected">
+          <img src="images/WeddingPhotography/Wedding_Pic9.png" alt="Wedding_Pic9">
+        </div>
+        <div class="protected">
+          <img src="images/WeddingPhotography/Wedding_Pic10.png" alt="Wedding_Pic10">
+        </div>
+        <div class="protected">
+          <img src="images/WeddingPhotography/Wedding_Pic11.png" alt="Wedding_Pic11">
+        </div>
+        
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 OM Photo Studio & Frame</p>
+  </footer>
+
+  <!-- 🔒 Image Protection Script -->
+  <script>
+    // Disable right-click on the entire page
+    document.addEventListener("contextmenu", event => event.preventDefault());
+
+    // Disable dragging & clicking of all images
+    document.querySelectorAll("img").forEach(img => {
+      img.setAttribute("draggable", "false");
+      img.style.userSelect = "none";
+      img.style.pointerEvents = "none"; // blocks interaction
+    });
+  </script>
+</body>
+</html>

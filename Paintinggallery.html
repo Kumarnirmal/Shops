@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gallery · OM Photo Studio & Frame</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- 🔒 Image Protection CSS -->
+ 
+</head>
+
+<body>
+  <header class="site-header">
+        <div class="brand">  
+            <h1>OM Photo Studio & Frame</h1>
+            <div class="tag">Creative Solutions</div>
+        </div>
+        <nav class="nav">
+            <a href="index.html" class="active">Home</a>    
+            <div class="dropdown">
+				<a href="#" class="dropbtn">Services</a>
+					<div class="dropdown-content">				
+					<a href="birthDayParty.html" class="active">BirthDay Party</a>
+					<a href="schoolEvents.html" class="active">School Events</a>
+					<a href="weddingPhotography.html" class="active">Wedding Photography</a>
+					<a href="corporateEvents.html" class="active">Corporate Events</a>
+					<a href="photoRestoration.html" class="active">Photo Restoration</a> 	 
+					</div>
+			</div>
+            
+			<div class="dropdown">
+			    <a href="#" class="dropbtn">Gallery</a>
+			      <div class="dropdown-content">	
+			       <a href="Paintinggallery.html" class="active">Art Gallery</a>
+				   <a href="PreWeddingIndoor.html" class="active">PreWedding Indoor</a>
+				   <a href="PreWeddingOutdoor.html" class="active">PreWedding Outdoor</a>
+				   <a href="PhotoFraming.html" class="active">Framing Concept</a>
+				</div> 	
+			</div>		
+			
+			<a href="contact.html" class="active">Contact</a>
+			 <a href="about.html" class="active">About</a>
+        </nav>
+        <button class="menu-toggle" style="display:none;">Menu</button>
+    
+  </header>
+
+  <main>
+    <section class="section gallery-full">
+      <h2>Our Work</h2>
+      <div class="gallery-grid">
+      <div class="protected">
+		<div class="image-container">
+			<img src="images/Gallery/Nirmal_OilPainting.png" alt="Oil Painting">
+		<div class="image-title">Oil Painting</div>
+		</div>
+
+        <div class="protected">
+          <img src="images/Gallery/Nirmal_PencilSketch.png" alt="Pencil Sketch">
+		  <div class="image-title">Pencil Sketch</div>
+        </div>
+        <div class="protected">
+          <img src="images/Gallery/Nirmal_WaterColor.png" alt="Water Color">
+		  <div class="image-title">Water Color</div>
+        </div>
+        <div class="protected">
+          <img src="images/Gallery/pencil sketch.png" alt="Pencil Sketch">
+		  <div class="image-title">Pencil Sketch</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 OM Photo Studio & Frame</p>
+  </footer>
+
+  <!-- 🔒 Image Protection Script -->
+  <script>
+    // Disable right-click on entire page
+    document.addEventListener("contextmenu", event => event.preventDefault());
+
+    // Disable dragging of all images
+    document.querySelectorAll("img").forEach(img => {
+      img.setAttribute("draggable", "false");
+      img.style.userSelect = "none";
+      img.style.pointerEvents = "none"; // prevents selecting or dragging the image
+    });
+  </script>
+</body>
+</html>
