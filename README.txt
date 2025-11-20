@@ -1,4 +1,5 @@
-BloomFrame Photo Studio — Modern Colorful theme
+OM Photo Studio & Frame
+ — Modern Colorful theme
 -------------------------------------------------
 
 Files included:
