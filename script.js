@@ -1,6 +1,9 @@
 /* script.js - Minimal interactions for the theme */
 document.addEventListener('DOMContentLoaded', function () {
-  // Simple contact form behavior
+
+  // ----------------------------------------------
+  // CONTACT FORM
+  // ----------------------------------------------
   const form = document.getElementById('contactForm');
   if (form) {
     form.addEventListener('submit', function (e) {
@@ -10,19 +13,45 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Menu toggle for small screens
+  // ----------------------------------------------
+  // MOBILE MENU TOGGLE (HAMBURGER)
+  // ----------------------------------------------
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.nav');
-  if (toggle) {
+
+  if (toggle && nav) {
     toggle.addEventListener('click', () => {
-      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+      nav.classList.toggle('active');   // CSS handles visibility
     });
   }
 
-  // Optional: pause slides on hover
+  // ----------------------------------------------
+  // MOBILE DROPDOWN TOGGLE
+  // ----------------------------------------------
+  const dropdownButtons = document.querySelectorAll('.dropdown .dropbtn');
+
+  dropdownButtons.forEach(btn => {
+    btn.addEventListener('click', function (e) {
+
+      // Only apply mobile behavior when screen is small
+      if (window.innerWidth <= 768) {
+        e.preventDefault(); // prevent navigation
+        const parent = this.parentElement;
+        parent.classList.toggle('open'); // open/close dropdown
+      }
+    });
+  });
+
+  // ----------------------------------------------
+  // SLIDE HOVER PAUSE
+  // ----------------------------------------------
   const slides = document.querySelector('.slides');
   if (slides) {
-    slides.addEventListener('mouseenter', () => slides.style.animationPlayState = 'paused');
-    slides.addEventListener('mouseleave', () => slides.style.animationPlayState = 'running');
+    slides.addEventListener('mouseenter', () =>
+      slides.style.animationPlayState = 'paused'
+    );
+    slides.addEventListener('mouseleave', () =>
+      slides.style.animationPlayState = 'running'
+    );
   }
 });
