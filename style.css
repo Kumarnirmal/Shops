@@ -326,3 +326,53 @@ button.cta:hover{background:var(--accent3);transform:translateY(-1px);box-shadow
     color: var(--accent2); 
     transform: translateY(0); /* Ensure this link stays in place */
 }
+
+/* mobile hamburger */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+}
+
+/* hide nav on mobile */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav.active {
+    display: flex;
+  }
+
+  /* dropdowns on mobile open by click */
+  .dropdown .dropdown-content {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #eee;
+    padding: 10px;
+  }
+
+  .dropdown.open .dropdown-content {
+    display: block;
+  }
+}
+
+/* desktop hover dropdowns */
+@media (min-width: 769px) {
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+}
+
