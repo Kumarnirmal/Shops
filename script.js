@@ -16,14 +16,16 @@ document.addEventListener('DOMContentLoaded', function () {
   // ----------------------------------------------
   // MOBILE MENU TOGGLE (HAMBURGER)
   // ----------------------------------------------
-  const toggle = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('.nav');
+ // Menu toggle for small screens (updated)
+const toggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('.nav');
 
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('active');   // CSS handles visibility
-    });
-  }
+if (toggle && nav) {
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('active');   // mobile menu opens/closes properly
+  });
+}
+
 
   // ----------------------------------------------
   // MOBILE DROPDOWN TOGGLE
