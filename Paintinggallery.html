@@ -52,20 +52,20 @@
       <div class="gallery-grid">
       <div class="protected">
 		<div class="image-container">
-			<img src="oilpainting.png" alt="Oil Painting">
+			<img src="Gallery/oilpainting.png" alt="Oil Painting">
 		<div class="image-title">Oil Painting</div>
 		</div>
 
         <div class="protected">
-          <img src="Nirmal_PencilSketch.png" alt="Pencil Sketch">
+          <img src="Gallery/Nirmal_PencilSketch.png" alt="Pencil Sketch">
 		  <div class="image-title">Pencil Sketch</div>
         </div>
         <div class="protected">
-          <img src="Nirmal_WaterColor.png" alt="Water Color">
+          <img src="Gallery/Nirmal_WaterColor.png" alt="Water Color">
 		  <div class="image-title">Water Color</div>
         </div>
         <div class="protected">
-          <img src="pencilsketch.png" alt="Pencil Sketch">
+          <img src="Gallery/pencilsketch.png" alt="Pencil Sketch">
 		  <div class="image-title">Pencil Sketch</div>
         </div>
       </div>
@@ -77,6 +77,16 @@
   </footer>
 
   <!-- 🔒 Image Protection Script -->
- 
+ <script>
+    // Disable right-click on entire page
+    document.addEventListener("contextmenu", event => event.preventDefault());
+
+    // Disable dragging of all images
+    document.querySelectorAll("img").forEach(img => {
+      img.setAttribute("draggable", "false");
+      img.style.userSelect = "none";
+      img.style.pointerEvents = "none"; // prevents selecting or dragging the image
+    });
+  </script>
 </body>
 </html>
