@@ -38,10 +38,11 @@
 }
 
   </style>
-
 </head>
 
 <body>
+
+	
 <header class="site-header">
   <div class="brand">  
       <h1>OM Photo Studio & Frame</h1>
@@ -132,16 +133,6 @@
   </footer>
 
   <!-- 🔒 Image Protection Script -->
-  <script>
-    // Disable right-click on the entire page
-    document.addEventListener("contextmenu", event => event.preventDefault());
-
-    // Disable dragging & clicking of all images
-    document.querySelectorAll("img").forEach(img => {
-      img.setAttribute("draggable", "false");
-      img.style.userSelect = "none";
-      img.style.pointerEvents = "none"; // blocks interaction
-    });
-  </script>
+   <script src="script.js"></script>
 </body>
 </html>
