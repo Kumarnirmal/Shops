@@ -338,22 +338,31 @@ button.cta:hover{background:var(--accent3);transform:translateY(-1px);box-shadow
 }
 
 /* hide nav on mobile */
+
 @media (max-width: 768px) {
   .nav {
     display: none;
     flex-direction: column;
     background: #fff;
     width: 100%;
-    padding: 10px;
+    padding: 12px 0;
+    position: absolute;     /* ✔ required */
+    top: 68px;              /* ✔ places menu BELOW fixed header */
+    left: 0;
+    z-index: 9999;          /* ✔ ensures full visibility */
+    border-bottom: 1px solid #ddd;
   }
 
   .menu-toggle {
     display: block;
+    z-index: 10000;
   }
 
   .nav.active {
     display: flex;
   }
+}
+
 
   /* dropdowns on mobile open by click */
   .dropdown .dropdown-content {
