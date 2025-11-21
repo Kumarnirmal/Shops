@@ -57,3 +57,13 @@ if (toggle && nav) {
     );
   }
 });
+
+    // Disable right-click on entire page
+    document.addEventListener("contextmenu", event => event.preventDefault());
+
+    // Disable dragging of all images
+    document.querySelectorAll("img").forEach(img => {
+      img.setAttribute("draggable", "false");
+      img.style.userSelect = "none";
+      img.style.pointerEvents = "none"; // prevents selecting or dragging the image
+    });
